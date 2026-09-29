@@ -9,10 +9,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
+from app.db import init_db
 from app.routers import ROUTERS
 from app.store import store
 
 app = FastAPI(title="特种设备点检运维平台", version="1.0.0")
+
+# 启动时建表并写入备件种子数据，保证库存调整落库、刷新不回退
+init_db()
 
 app.add_middleware(
     CORSMiddleware,
