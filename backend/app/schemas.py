@@ -21,6 +21,24 @@ class ActionResult(BaseModel):
     entry: dict[str, Any] | None = None
 
 
+class LedgerPageResult(BaseModel):
+    """出入库/盘点台账分页结构。"""
+
+    items: list[dict[str, Any]]
+    total: int
+    page: int = 1
+    size: int = 20
+
+
+class DispatchPageResult(BaseModel):
+    """调度台账分页结构。"""
+
+    items: list[dict[str, Any]]
+    total: int
+    page: int = 1
+    size: int = 20
+
+
 class EntryPayload(BaseModel):
     """登记或修改一条业务记录时提交的字段集合。"""
 

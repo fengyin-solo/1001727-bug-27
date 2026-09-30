@@ -1,6 +1,7 @@
 """运行配置：端口、跨域、运行环境。"""
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass, field
 
 
@@ -9,6 +10,9 @@ class Settings:
     app_name: str = "特种设备点检运维平台"
     env: str = "local"
     port: int = 8000
+    db_path: str = field(
+        default_factory=lambda: os.environ.get("APP_DB_PATH", "data/app.db")
+    )
     allowed_origins: list[str] = field(
         default_factory=lambda: [
             "http://127.0.0.1:5173",

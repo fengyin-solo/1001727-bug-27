@@ -17,6 +17,7 @@ const Rectify = () => import('@/views/rectify/index.vue')
 const Register = () => import('@/views/register/index.vue')
 const Operator = () => import('@/views/operator/index.vue')
 const Spare = () => import('@/views/spare/index.vue')
+const Dispatch = () => import('@/views/dispatch/index.vue')
 const Contract = () => import('@/views/contract/index.vue')
 const Settle = () => import('@/views/settle/index.vue')
 
@@ -40,6 +41,7 @@ const router = createRouter({
     { path: '/register', name: 'register', component: Register },
     { path: '/operator', name: 'operator', component: Operator },
     { path: '/spare', name: 'spare', component: Spare },
+    { path: '/dispatch', name: 'dispatch', component: Dispatch },
     { path: '/contract', name: 'contract', component: Contract },
     { path: '/settle', name: 'settle', component: Settle },
   ],

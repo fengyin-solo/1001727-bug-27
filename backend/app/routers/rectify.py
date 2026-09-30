@@ -50,9 +50,13 @@ def create_entry(payload: EntryPayload) -> ActionResult:
 
 @router.post("/{entry_id}/actions", response_model=ActionResult)
 def run_action(entry_id: int, payload: EntryPayload) -> ActionResult:
-    """对单条整改单执行下发整改、提交验收、确认闭环；不允许的动作会被拦下并说明原因。"""
+    """对单条整改单执行下发整改、提交验收、确认闭环。
+
+    确认闭环时可在 values 中携带：关联备件（备件编号）、整改结论、验收人员、调度数量；
+    带了关联备件的，整改结论会随闭环落到调度台账。
+    """
     action = str(payload.values.get("action") or "").strip()
-    entry, message = service.run_action(entry_id, action)
+    entry, message = service.run_action(entry_id, action, payload.values)
     if entry is None:
         return ActionResult(ok=False, message=message)
     return ActionResult(ok=True, message=message, entry=entry)

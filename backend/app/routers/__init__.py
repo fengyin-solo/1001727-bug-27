@@ -22,7 +22,8 @@ from app.routers import rectify as router_rectify
 from app.routers import register as router_register
 from app.routers import operator as router_operator
 from app.routers import spare as router_spare
+from app.routers import dispatch as router_dispatch
 from app.routers import contract as router_contract
 from app.routers import settle as router_settle
 
-ROUTERS = [router_boiler, router_vessel, router_pressurepipe, router_crane, router_elevator, router_forklift, router_plan, router_spotcheck, router_lubricate, router_inspect, router_report, router_hazard, router_rectify, router_register, router_operator, router_spare, router_contract, router_settle]
+ROUTERS = [router_boiler, router_vessel, router_pressurepipe, router_crane, router_elevator, router_forklift, router_plan, router_spotcheck, router_lubricate, router_inspect, router_report, router_hazard, router_rectify, router_register, router_operator, router_spare, router_dispatch, router_contract, router_settle]
